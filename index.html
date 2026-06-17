@@ -8,7 +8,7 @@
         /* Gaya Dasar & Font Klasik */
         body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #dfd7ca; /* Warna kertas krem */
+            background-color: #dfd7ca; /* Warna kertas krem dasar */
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -21,21 +21,24 @@
         .invitation-wrapper {
             max-width: 450px;
             width: 100%;
-            background-color: #dfd7ca;
+            background-color: #dfd7ca; /* Krem tengah */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
-            position: relative; /* Penting untuk posisi bunga */
+            position: relative;
         }
 
-        /* --- 1. HALAMAN PEMBUKA / COVER (Bagian Atas yang Dilingkari Merah) --- */
+        /* --- 1. HALAMAN PEMBUKA / COVER (Marun Pekat) --- */
         .section-cover {
-            background-color: #3d1116; /* Warna Marun Beludru Mewah */
+            background: #420b11 !important; /* Paksa warna Marun Beludru muncul */
+            background-image: url('pembuka.jpg') !important; 
+            background-size: cover;
+            background-position: center;
             padding: 60px 25px 80px 25px;
             color: #ffffff;
             text-align: center;
-            border-bottom: 5px solid #d4af37; /* Garis pembatas emas */
+            border-bottom: 5px solid #d4af37;
             position: relative;
         }
 
@@ -53,7 +56,7 @@
             color: #ffffff;
             margin: 20px 0;
             line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
         .cover-names span {
             display: block;
@@ -64,14 +67,14 @@
 
         /* Kotak Tempat Nama Tamu */
         .box-tamu {
-            background: #ffffff;
+            background: #ffffff !important;
             border: 3px double #d4af37;
             border-radius: 12px;
             padding: 20px 10px;
             margin: 40px auto 20px auto;
             max-width: 85%;
-            color: #000000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            color: #000000 !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .yth-tamu {
             font-size: 11px;
@@ -94,11 +97,10 @@
             font-style: italic;
         }
 
-        /* Hint Scroll Down */
         .scroll-hint {
             font-size: 12px;
             color: #dfd7ca;
-            opacity: 0.6;
+            opacity: 0.8;
             margin-top: 30px;
             animation: bounce 2s infinite;
         }
@@ -108,24 +110,26 @@
             60% { transform: translateY(-4px); }
         }
 
-        /* --- ORNAMEN BUNGA (Bagian Kiri Bawah Cover yang Dilingkari Hitam) --- */
+        /* Ornamen Bunga di Kiri Bawah Cover */
         .flower-ornament {
             position: absolute;
-            left: -20px; /* Sedikit keluar dari container */
-            bottom: -50px; /* Menutupi perbatasan marun-krem */
+            left: 0;
+            bottom: 0;
             width: 150px;
             height: 150px;
-            background-image: url('bunga.png'); /* File bunga harus ada di folder */
-            background-size: contain;
-            background-repeat: no-repeat;
+            background-image: url('pembuka.jpg'); /* Ngambil bagian bunga dari file gambar */
+            background-size: cover;
+            background-position: bottom left;
             z-index: 10;
+            pointer-events: none;
         }
 
-        /* --- 2. HALAMAN ISI (Bagian Bawah Setelah di-Scroll) --- */
+        /* --- 2. HALAMAN ISI (Bagian Tengah Krem) --- */
         .section-content {
-            padding: 100px 25px 40px 25px; /* Padding atas lebih besar untuk memberi ruang bunga */
+            padding: 80px 25px 40px 25px;
             text-align: center;
             color: #26070a;
+            background-color: #dfd7ca !important;
             flex-grow: 1;
         }
 
@@ -147,9 +151,84 @@
             border-bottom: 1px dashed rgba(66, 17, 23, 0.2);
         }
 
-        /* Bagian Detail Nama Lengkap Pengantin */
         .mempelai-box {
             margin: 25px 0;
         }
         .nama-lengkap {
-            font-size: 22
+            font-size: 22px;
+            font-weight: bold;
+            color: #421117;
+            margin-bottom: 4px;
+        }
+        .orang-tua {
+            font-size: 12.5px;
+            color: #554441;
+        }
+        .simbol-dan-isi {
+            font-size: 32px;
+            color: #b38f2d;
+            font-family: 'Georgia', serif;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-wrapper">
+        
+        <div class="section-cover">
+            <div class="main-title">Undangan Pernikahan</div>
+            
+            <div class="cover-names">
+                Andre
+                <span>&</span>
+                Syafira
+            </div>
+
+            <div class="box-tamu">
+                <p class="yth-tamu">Kepada YTH Bapak/Ibu/Saudara/i</p>
+                <h2 id="namaTamu">Nama Tamu</h2>
+                <p class="label-bawah-tamu">Maaf apabila ada kesalahan dalam penulisan nama / gelar</p>
+            </div>
+
+            <div class="scroll-hint">▼ Scroll ke bawah</div>
+            <div class="flower-ornament"></div>
+        </div>
+
+        <div class="section-content">
+            <div class="tanggal-atas">26 JUNI 2026</div>
+            
+            <div class="ayat">
+                Matius 19:6: "Demikianlah mereka bukan lagi dua melainkan satu. Karena itu, apa yang dipersatukan Allah tidak boleh diceraikan manusia".
+            </div>
+
+            <div class="mempelai-box">
+                <div class="nama-lengkap">Andre Bagus Putra Aditya, S.Kom.</div>
+                <div class="orang-tua">Putra kedua dari Bapak Liem Bing Djiang & Ibu Ong Moy Liang</div>
+            </div>
+
+            <div class="simbol-dan-isi">&</div>
+
+            <div class="mempelai-box">
+                <div class="nama-lengkap">Anisa Syafira Salsabila, S.H.</div>
+                <div class="orang-tua">Putri Keempat dari Bapak Mahatma Rahendra & Ibu Indah Puspita Ratih</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function getGuestName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nama = urlParams.get('to');
+            if (nama) {
+                document.getElementById('namaTamu').innerText = decodeURIComponent(nama);
+            } else {
+                document.getElementById('namaTamu').innerText = "Tamu Undangan";
+            }
+        }
+        window.onload = getGuestName;
+    </script>
+
+</body>
+</html>
