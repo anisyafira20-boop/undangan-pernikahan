@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Andre & Syafira</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c1a17;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            border: 2px solid #d4af37;
+            padding: 30px;
+            background-color: #1a0f0d;
+            border-radius: 10px;
+        }
+        h1 { font-family: 'Georgia', serif; color: #d4af37; }
+        .nama-pengantin { font-size: 24px; font-weight: bold; margin: 20px 0; }
+        .tamu-section {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 5px solid #d4af37;
+        }
+        #namaTamu { font-size: 22px; color: #d4af37; font-weight: bold; }
+        .detail { margin-top: 30px; line-height: 1.6; }
+        .waktu-lokasi { font-weight: bold; color: #d4af37; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p>UNDANGAN PERNIKAHAN</p>
+        <div class="nama-pengantin">Andre & Syafira</div>
+        
+        <div class="tamu-section">
+            <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <div id="namaTamu">Nama Tamu</div>
+        </div>
+
+        <div class="detail">
+            <p><strong>Ibadah Pemberkatan Nikah:</strong></p>
+            <p class="waktu-lokasi">Jum'at, 26 Juni 2026<br>Pukul 10.00 WIB</p>
+            <p><strong>Lokasi:</strong><br>GBI Keluarga Allah Solo<br>Jl. Sutan Syahrir No.88 Widuran, Surakarta</p>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk mengambil nama dari link (URL)
+        function getGuestName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nama = urlParams.get('to');
+            if (nama) {
+                // Mengubah tanda plus (+) atau %20 menjadi spasi
+                document.getElementById('namaTamu').innerText = decodeURIComponent(nama);
+            } else {
+                document.getElementById('namaTamu').innerText = "Tamu Undangan";
+            }
+        }
+        // Jalankan fungsi saat web dibuka
+        window.onload = getGuestName;
+    </script>
+
+</body>
+</html>
