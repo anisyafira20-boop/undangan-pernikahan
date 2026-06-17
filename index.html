@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Andre & Syafira</title>
     <style>
+        /* Gaya Dasar & Font Klasik */
         body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #dfd7ca; /* Warna krem dasar kertas */
+            background-color: #dfd7ca; /* Warna kertas krem */
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -16,48 +17,26 @@
             align-items: center;
         }
 
-        /* Efek Animasi Kelopak Bunga Gugur */
-        .flower-drop {
-            position: fixed;
-            width: 15px;
-            height: 15px;
-            background: #ffffff;
-            border: 1px solid #d4af37;
-            border-radius: 15px 0 15px 0;
-            box-shadow: inset 0 0 4px rgba(212,175,55,0.3);
-            animation: fall 9s infinite linear;
-            opacity: 0.75;
-            pointer-events: none;
-            z-index: 99;
-        }
-        @keyframes fall {
-            0% { transform: translateY(-5vh) rotate(0deg); left: calc(5% + 90% * var(--x)); }
-            100% { transform: translateY(105vh) rotate(360deg); left: calc(5% + 90% * var(--x) + 30px); }
-        }
-
-        /* Wrapper Utama Memanjang */
+        /* Container Utama */
         .invitation-wrapper {
             max-width: 450px;
             width: 100%;
             background-color: #dfd7ca;
-            box-shadow: 0 0 25px rgba(0,0,0,0.15);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
+            position: relative; /* Penting untuk posisi bunga */
         }
 
-        /* --- 1. HALAMAN PEMBUKA / COVER (Ada Cadangan Warna Marun) --- */
+        /* --- 1. HALAMAN PEMBUKA / COVER (Bagian Atas yang Dilingkari Merah) --- */
         .section-cover {
-            background-color: #3d1116; /* Warna Marun Utama (Cadangan jika gambar belum muncul) */
-            background-image: url('pembuka.jpg'); /* Memanggil background melengkung penuh */
-            background-size: cover;
-            background-position: center;
-            padding: 80px 25px 120px 25px;
+            background-color: #3d1116; /* Warna Marun Beludru Mewah */
+            padding: 60px 25px 80px 25px;
             color: #ffffff;
             text-align: center;
-            min-height: 500px;
-            box-sizing: border-box;
+            border-bottom: 5px solid #d4af37; /* Garis pembatas emas */
+            position: relative;
         }
 
         .main-title {
@@ -65,76 +44,89 @@
             letter-spacing: 3px;
             color: #d4af37;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .cover-names {
             font-size: 38px;
             font-family: 'Georgia', serif;
             color: #ffffff;
-            margin: 25px 0;
-            line-height: 1.3;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            margin: 20px 0;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         .cover-names span {
             display: block;
-            font-size: 24px;
+            font-size: 26px;
             color: #d4af37;
-            margin: 5px 0;
+            margin: 10px 0;
         }
 
-        /* Kotak Putih Nama Tamu */
+        /* Kotak Tempat Nama Tamu */
         .box-tamu {
             background: #ffffff;
             border: 3px double #d4af37;
             border-radius: 12px;
             padding: 20px 10px;
-            margin: 40px auto 15px auto;
+            margin: 40px auto 20px auto;
             max-width: 85%;
             color: #000000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .yth-tamu {
             font-size: 11px;
-            color: #555555;
+            color: #666666;
             margin: 0 0 6px 0;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         #namaTamu {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
             color: #111111;
             margin: 0;
             text-transform: uppercase;
         }
         .label-bawah-tamu {
-            font-size: 10px;
+            font-size: 11px;
             color: #666666;
             margin: 8px 0 0 0;
             font-style: italic;
         }
 
+        /* Hint Scroll Down */
         .scroll-hint {
             font-size: 12px;
-            color: #ffffff;
-            opacity: 0.8;
-            margin-top: 40px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            color: #dfd7ca;
+            opacity: 0.6;
+            margin-top: 30px;
             animation: bounce 2s infinite;
         }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-6px); }
-            60% { transform: translateY(-3px); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
 
-        /* --- 2. HALAMAN ISI (TENGAH) --- */
+        /* --- ORNAMEN BUNGA (Bagian Kiri Bawah Cover yang Dilingkari Hitam) --- */
+        .flower-ornament {
+            position: absolute;
+            left: -20px; /* Sedikit keluar dari container */
+            bottom: -50px; /* Menutupi perbatasan marun-krem */
+            width: 150px;
+            height: 150px;
+            background-image: url('bunga.png'); /* File bunga harus ada di folder */
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 10;
+        }
+
+        /* --- 2. HALAMAN ISI (Bagian Bawah Setelah di-Scroll) --- */
         .section-content {
-            padding: 60px 25px 30px 25px;
+            padding: 100px 25px 40px 25px; /* Padding atas lebih besar untuk memberi ruang bunga */
             text-align: center;
             color: #26070a;
-            background-color: #dfd7ca;
+            flex-grow: 1;
         }
 
         .tanggal-atas {
@@ -149,204 +141,15 @@
             font-style: italic;
             font-size: 13.5px;
             line-height: 1.6;
-            color: #4a3e3b;
+            color: #554441;
             margin: 0 10px 30px 10px;
             padding-bottom: 20px;
-            border-bottom: 1px dashed rgba(62, 17, 22, 0.2);
+            border-bottom: 1px dashed rgba(66, 17, 23, 0.2);
         }
 
-        .pengantar {
-            font-size: 13.5px;
-            line-height: 1.6;
-            margin-bottom: 35px;
-            color: #26070a;
-        }
-
-        /* Detail Mempelai */
+        /* Bagian Detail Nama Lengkap Pengantin */
         .mempelai-box {
             margin: 25px 0;
         }
         .nama-lengkap {
-            font-size: 21px;
-            font-weight: bold;
-            color: #3d1116;
-            margin-bottom: 3px;
-        }
-        .nama-china {
-            font-size: 15px;
-            color: #b38f2d;
-            margin-bottom: 6px;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-        .orang-tua {
-            font-size: 12.5px;
-            color: #4a3e3b;
-        }
-        .simbol-dan-isi {
-            font-size: 32px;
-            color: #b38f2d;
-            font-family: 'Georgia', serif;
-            margin: 20px 0;
-        }
-
-        /* --- 3. ACARA & LOKASI (Ada Cadangan Warna Marun) --- */
-        .section-event {
-            background-color: #26070a; /* Warna Marun Gelap Utama (Cadangan jika gambar belum muncul) */
-            background-image: url('penutup.jpg'); /* Memanggil background melengkung bawah */
-            background-size: cover;
-            background-position: top center;
-            padding: 100px 25px 60px 25px;
-            color: #ffffff;
-            text-align: center;
-            margin-top: auto;
-            min-height: 400px;
-            box-sizing: border-box;
-        }
-
-        .waktu-title {
-            font-size: 13px;
-            letter-spacing: 2px;
-            color: #dfd7ca;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        /* Detail Waktu & Tempat GBI */
-        .grid-detail {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 25px 10px;
-            border-top: 1px solid rgba(212, 175, 55, 0.4);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 20px 0;
-            font-size: 13.5px;
-        }
-        .grid-item h4 {
-            margin: 0 0 5px 0;
-            color: #d4af37;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-        .grid-item p {
-            margin: 0;
-            line-height: 1.4;
-            color: #f0e6df;
-        }
-        .lokasi-full {
-            grid-column: span 2;
-        }
-        .lokasi-full p strong {
-            color: #ffffff;
-            font-size: 15px;
-        }
-        .alamat-jalan {
-            font-size: 12.5px;
-            color: #dcd0c7;
-            margin-top: 4px !important;
-        }
-
-        .penutup {
-            font-size: 12.5px;
-            line-height: 1.6;
-            color: #dcd0c7;
-            margin-top: 40px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
-    </style>
-</head>
-<body>
-
-    <div class="flower-drop" style="--x:0.1; animation-delay: 0s;"></div>
-    <div class="flower-drop" style="--x:0.3; animation-delay: 2.5s;"></div>
-    <div class="flower-drop" style="--x:0.55; animation-delay: 4.5s;"></div>
-    <div class="flower-drop" style="--x:0.75; animation-delay: 1s;"></div>
-    <div class="flower-drop" style="--x:0.9; animation-delay: 6s;"></div>
-
-    <div class="invitation-wrapper">
-        
-        <div class="section-cover">
-            <div class="main-title">Undangan Pernikahan</div>
-            
-            <div class="cover-names">
-                Andre
-                <span>&</span>
-                Syafira
-            </div>
-
-            <div class="box-tamu">
-                <p class="yth-tamu">Kepada YTH Bapak/Ibu/Saudara/i</p>
-                <h2 id="namaTamu">Nama Tamu</h2>
-                <p class="label-bawah-tamu">Maaf apabila ada kesalahan dalam penulisan nama / gelar</p>
-            </div>
-
-            <div class="scroll-hint">▼ Scroll ke bawah untuk melihat isi</div>
-        </div>
-
-        <div class="section-content">
-            <div class="tanggal-atas">26 JUNI 2026</div>
-            
-            <div class="ayat">
-                Matius 19:6: "Demikianlah mereka bukan lagi dua melainkan satu. Karena itu, apa yang dipersatukan Allah tidak boleh diceraikan manusia".
-            </div>
-
-            <div class="pengantar">
-                Dalam kasih dan anugerah Tuhan Yesus Kristus, kami mengundang Bapak/Ibu/Saudara untuk menghadiri Ibadah Pemberkatan Nikah kami:
-            </div>
-
-            <div class="mempelai-box">
-                <div class="nama-lengkap">Andre Bagus Putra Aditya, S.Kom.</div>
-                <div class="nama-china">Liem Shi Wang 林是王</div>
-                <div class="orang-tua">Putra kedua dari Bapak Liem Bing Djiang & Ibu Ong Moy Liang</div>
-            </div>
-
-            <div class="simbol-dan-isi">&</div>
-
-            <div class="mempelai-box">
-                <div class="nama-lengkap">Anisa Syafira Salsabila, S.H.</div>
-                <div class="orang-tua">Putri Keempat dari Bapak Mahatma Rahendra & Ibu Indah Puspita Ratih</div>
-            </div>
-        </div>
-
-        <div class="section-event">
-            <div class="waktu-title">Yang akan dilaksanakan pada:</div>
-            
-            <div class="grid-detail">
-                <div class="grid-item">
-                    <h4>JUM'AT</h4>
-                    <p>26 Juni 2026</p>
-                </div>
-                <div class="grid-item">
-                    <h4>PUKUL</h4>
-                    <p>10.00 WIB</p>
-                </div>
-                <div class="grid-item lokasi-full">
-                    <h4>LOKASI</h4>
-                    <p><strong>GBI Keluarga Allah Solo</strong></p>
-                    <p class="alamat-jalan">Jl. Sutan Syahrir No.88 Widuran, Surakarta</p>
-                </div>
-            </div>
-
-            <div class="penutup">
-                Atas kehadiran dan do'a restu dari Bapak/Ibu/Saudara/i sekalian, kami mengucapkan Terima Kasih.
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function getGuestName() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const nama = urlParams.get('to');
-            if (nama) {
-                document.getElementById('namaTamu').innerText = decodeURIComponent(nama);
-            } else {
-                document.getElementById('namaTamu').innerText = "Tamu Undangan";
-            }
-        }
-        window.onload = getGuestName;
-    </script>
-
-</body>
-</html>
+            font-size: 22
