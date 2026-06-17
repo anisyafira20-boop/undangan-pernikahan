@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Andre & Syafira</title>
     <style>
-        /* Desain Background & Layout Utama */
+        /* Background Mewah dengan Nuansa Merah Maroon & Emas */
         body {
             font-family: 'Times New Roman', Times, serif;
-            background: radial-gradient(circle, #2c1612 0%, #170b09 100%);
+            background: radial-gradient(circle, #4a0d0d 0%, #1a0505 100%);
             color: #f5eae4;
             display: flex;
             justify-content: center;
@@ -17,177 +17,203 @@
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
-        }
-
-        /* Bingkai Emas Luar (Border) */
-        .card-border {
-            border: 2px solid #d4af37;
-            padding: 6px;
-            max-width: 480px;
-            width: 100%;
-            background: transparent;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+            overflow-x: hidden;
             position: relative;
         }
 
-        /* Konten Dalam Undangan */
-        .card-content {
-            border: 1px solid #d4af37;
-            padding: 30px 20px;
-            background-color: #1a0a07;
-            text-align: center;
+        /* Efek Animasi Kelopak Bunga Merah Berguguran */
+        .leaf {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #cc2b2b;
+            border-radius: 15px 0 15px 0;
+            animation: fall 8s infinite linear;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 10;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-5vh) rotate(0deg); left: calc(10% + 80% * var(--x)); }
+            100% { transform: translateY(105vh) rotate(360deg); left: calc(10% + 80% * var(--x) + 50px); }
         }
 
-        /* Ornamen Bunga Sudut (Simulasi Efek Cetak) */
-        .card-content::before {
-            content: "✿";
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            color: #d4af37;
-            font-size: 20px;
-            opacity: 0.6;
+        /* Bingkai Emas Menyala (Glow) */
+        .card-border {
+            border: 3px solid #d4af37;
+            padding: 8px;
+            max-width: 480px;
+            width: 100%;
+            background: transparent;
+            box-shadow: 0px 0px 25px rgba(212, 175, 55, 0.4);
+            position: relative;
+            z-index: 2;
+            border-radius: 4px;
         }
-        .card-content::after {
-            content: "✿";
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: #d4af37;
-            font-size: 20px;
-            opacity: 0.6;
+
+        /* Konten Dalam Undangan dengan Tekstur Merah Gelap */
+        .card-content {
+            border: 2px solid #d4af37;
+            padding: 40px 20px;
+            background-color: #2b0808;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Ornamen GIF Bunga China / Estetik di Atas & Bawah */
+        .gif-ornament {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 15px auto;
+            display: block;
+            filter: drop-shadow(0px 0px 5px rgba(212,175,55,0.5));
+        }
+        .gif-bottom {
+            margin: 20px auto 0 auto;
+            transform: rotate(180deg);
         }
 
         .tanggal-atas {
-            font-size: 16px;
-            letter-spacing: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 5px;
             color: #d4af37;
-            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(212,175,55,0.6);
+            margin-bottom: 15px;
         }
 
-        /* Bagian Ayat Alkitab */
         .ayat {
             font-style: italic;
-            font-size: 13px;
+            font-size: 13.5px;
             line-height: 1.6;
-            color: #e3d2c4;
-            margin: 0 10px 20px 10px;
+            color: #fceae6;
+            margin: 0 10px 25px 10px;
             padding-bottom: 15px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
         }
 
         .pengantar {
-            font-size: 13px;
-            line-height: 1.5;
-            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
             color: #f5eae4;
         }
 
-        /* Nama Pengantin */
-        .nama-pria {
-            font-size: 22px;
+        /* Nama Pengantin - Dibikin Lebih Tegas & Berkilau */
+        .nama-pria, .nama-wanita {
+            font-size: 24px;
             font-weight: bold;
             color: #ffffff;
-            margin-bottom: 2px;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 5px;
         }
         .nama-china {
-            font-size: 14px;
+            font-size: 16px;
             color: #d4af37;
             margin-bottom: 5px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: bold;
         }
         .orang-tua {
-            font-size: 12px;
-            color: #c9b09a;
+            font-size: 12.5px;
+            color: #dfc5af;
             margin-bottom: 15px;
         }
 
         .simbol-dan {
-            font-size: 28px;
+            font-size: 35px;
             color: #d4af37;
             font-family: 'Georgia', serif;
-            margin: 10px 0;
-        }
-
-        .nama-wanita {
-            font-size: 22px;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 5px;
+            margin: 15px 0;
+            text-shadow: 0 0 10px rgba(212,175,55,0.5);
         }
 
         .info-acara {
-            font-size: 13px;
-            margin-top: 25px;
-            margin-bottom: 15px;
+            font-size: 14px;
+            margin-top: 30px;
+            color: #f5eae4;
         }
 
-        /* Kotak Putih Tempat Nama Tamu (Sesuai Undangan Fisik) */
+        /* Kotak Nama Tamu Putih Mewah dengan Bingkai Ganda Emas */
         .box-tamu {
-            background-color: #ffffff;
-            border: 3px double #d4af37;
+            background: #ffffff;
+            border: 4px double #d4af37;
             border-radius: 15px;
-            padding: 15px 10px;
+            padding: 18px 10px;
             margin: 25px auto;
             max-width: 85%;
             color: #000000;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.5), inset 0 0 10px rgba(0,0,0,0.1);
         }
         .yth-tamu {
             font-size: 12px;
-            color: #555555;
-            margin: 0 0 5px 0;
+            color: #444444;
+            margin: 0 0 8px 0;
             font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
         }
         #namaTamu {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
-            color: #111111;
+            color: #b81414; /* Nama tamu berwarna merah maroon tegas */
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
         }
 
-        /* Grid Waktu & Lokasi */
+        /* Grid Waktu & Lokasi Elegan */
         .grid-detail {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 20px 0;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 15px 0;
-            font-size: 12px;
+            gap: 12px;
+            margin: 25px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 20px 0;
+            font-size: 13px;
+            background: rgba(0, 0, 0, 0.2);
         }
         .grid-item h4 {
             margin: 0 0 5px 0;
             color: #d4af37;
-            font-size: 13px;
-            letter-spacing: 1px;
+            font-size: 14px;
+            letter-spacing: 2px;
         }
         .grid-item p {
             margin: 0;
-            line-height: 1.4;
+            line-height: 1.5;
         }
         .lokasi-full {
             grid-column: span 2;
             margin-top: 5px;
-            color: #e3d2c4;
+        }
+        .lokasi-full p strong {
+            color: #ffffff;
+            font-size: 15px;
         }
 
         .penutup {
-            font-size: 12px;
-            line-height: 1.5;
-            color: #c9b09a;
-            margin-top: 20px;
+            font-size: 12.5px;
+            line-height: 1.6;
+            color: #dfc5af;
+            margin-top: 25px;
         }
     </style>
 </head>
 <body>
 
+    <div class="leaf" style="--x:0.1; animation-delay: 0s;"></div>
+    <div class="leaf" style="--x:0.3; animation-delay: 2s; background: #9e1b1b;"></div>
+    <div class="leaf" style="--x:0.5; animation-delay: 4s;"></div>
+    <div class="leaf" style="--x:0.7; animation-delay: 1s; background: #9e1b1b;"></div>
+    <div class="leaf" style="--x:0.9; animation-delay: 5s;"></div>
+
     <div class="card-border">
         <div class="card-content">
             
+            <img class="gif-ornament" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTNwcmM0bW9peG96b3M0bXN6cmNjdnd0Y3R6YW9pZnd0Z3Z0NW9pbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LSp66G7biYjVAnuXp2/giphy.gif" alt="Bunga China">
+
             <div class="tanggal-atas">26 JUNI 2026</div>
 
             <div class="ayat">
@@ -217,39 +243,4 @@
             <div class="grid-detail">
                 <div class="grid-item">
                     <h4>JUM'AT</h4>
-                    <p>26 Juni 2026</p>
-                </div>
-                <div class="grid-item">
-                    <h4>PUKUL</h4>
-                    <p>10.00 WIB</p>
-                </div>
-                <div class="grid-item lokasi-full">
-                    <h4>LOKASI</h4>
-                    <p><strong>GBI Keluarga Allah Solo</strong></p>
-                    <p>Jl. Sutan Syahrir No.88 Widuran, Surakarta</p>
-                </div>
-            </div>
-
-            <div class="penutup">
-                Atas kehadiran dan do'a restu dari Bapak/Ibu/Saudara/i sekalian, kami mengucapkan Terima Kasih.
-            </div>
-
-        </div>
-    </div>
-
-    <script>
-        // Logika untuk menangkap nama dari link (?to=Nama+Tamu)
-        function getGuestName() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const nama = urlParams.get('to');
-            if (nama) {
-                document.getElementById('namaTamu').innerText = decodeURIComponent(nama);
-            } else {
-                document.getElementById('namaTamu').innerText = "Tamu Undangan";
-            }
-        }
-        window.onload = getGuestName;
-    </script>
-
-</body>
-</html>
+                    <p>26 Juni
