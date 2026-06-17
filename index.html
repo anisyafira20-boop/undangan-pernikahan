@@ -3,147 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Andre & Syafira</title>
+    <title>Undangan Pernikahan Andre & Anisa</title>
     <style>
-        /* Background Mewah dengan Nuansa Merah Maroon & Emas */
+        /* Desain Background Berlapis */
         body {
             font-family: 'Times New Roman', Times, serif;
-            background: radial-gradient(circle, #4a0d0d 0%, #1a0505 100%);
-            color: #f5eae4;
+            margin: 0;
+            padding: 0;
+            /* Latar belakang dasar: kertas krem bertekstur */
+            background-color: #e5e0d3;
+            background-image: 
+                /* Lengkungan marun beludru (posisi bawah) */
+                linear-gradient(135deg, transparent 65%, #3d1b1f 65%),
+                linear-gradient(-135deg, transparent 65%, #3d1b1f 65%),
+                /* Lengkungan marun beludru (posisi atas) */
+                linear-gradient(135deg, #3d1b1f 35%, transparent 35%),
+                linear-gradient(-135deg, #3d1b1f 35%, transparent 35%);
+            background-size: 100% 100%;
+            background-position: bottom, bottom, top, top;
+            background-repeat: no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Efek Animasi Kelopak Bunga Merah Berguguran */
-        .leaf {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: #cc2b2b;
-            border-radius: 15px 0 15px 0;
-            animation: fall 8s infinite linear;
-            opacity: 0.7;
-            pointer-events: none;
-            z-index: 10;
-        }
-        @keyframes fall {
-            0% { transform: translateY(-5vh) rotate(0deg); left: calc(10% + 80% * var(--x)); }
-            100% { transform: translateY(105vh) rotate(360deg); left: calc(10% + 80% * var(--x) + 50px); }
-        }
-
-        /* Bingkai Emas Menyala (Glow) */
-        .card-border {
-            border: 3px solid #d4af37;
-            padding: 8px;
-            max-width: 480px;
-            width: 100%;
-            background: transparent;
-            box-shadow: 0px 0px 25px rgba(212, 175, 55, 0.4);
-            position: relative;
-            z-index: 2;
-            border-radius: 4px;
-        }
-
-        /* Konten Dalam Undangan dengan Tekstur Merah Gelap */
-        .card-content {
-            border: 2px solid #d4af37;
-            padding: 40px 20px;
-            background-color: #2b0808;
+            color: #1a1411;
             text-align: center;
             position: relative;
         }
 
-        /* Ornamen Mahkota Bunga Emas Mewah (Aman & Anti-Eror) */
-        .flower-crest {
-            font-size: 45px;
-            color: #d4af37;
-            margin: 0 auto 10px auto;
-            text-shadow: 0 0 12px rgba(212,175,55,0.8);
-            display: inline-block;
-            animation: pulse 3s infinite ease-in-out;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 20px rgba(212,175,55,1); }
-            100% { transform: scale(1); opacity: 0.9; }
-        }
-
-        .tanggal-atas {
-            font-size: 18px;
-            font-weight: bold;
-            letter-spacing: 5px;
-            color: #d4af37;
-            text-shadow: 0 0 8px rgba(212,175,55,0.6);
-            margin-bottom: 15px;
+        /* Ornamen Bunga Pertas & Emas (Simulasi) */
+        /* Menggunakan simbol teks karena kita tidak pakai file gambar */
+        body::before {
+            content: "✿ ✦ ✿";
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            color: #d4af37; /* Warna Emas */
+            text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff; /* Outline putih */
+            z-index: 5;
         }
 
-        .ayat {
-            font-style: italic;
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: #fceae6;
-            margin: 0 10px 25px 10px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
-        }
-
-        .pengantar {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: #f5eae4;
-        }
-
-        /* Nama Pengantin */
-        .nama-pria, .nama-wanita {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff;
-            text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
-            margin-bottom: 5px;
-        }
-        .nama-china {
-            font-size: 16px;
-            color: #d4af37;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-        .orang-tua {
-            font-size: 12.5px;
-            color: #dfc5af;
-            margin-bottom: 15px;
-        }
-
-        .simbol-dan {
-            font-size: 35px;
-            color: #d4af37;
-            font-family: 'Georgia', serif;
-            margin: 15px 0;
-            text-shadow: 0 0 10px rgba(212,175,55,0.5);
-        }
-
-        .info-acara {
-            font-size: 14px;
-            margin-top: 30px;
-            color: #f5eae4;
-        }
-
-        /* Kotak Nama Tamu Putih Mewah */
-        .box-tamu {
-            background: #ffffff;
-            border: 4px double #d4af37;
-            border-radius: 15px;
-            padding: 18px 10px;
-            margin: 25px auto;
-            max-width: 85%;
-            color: #000000;
-            box-shadow: 0px 5px 15px rgba(0,0,0,0.5), inset 0 0 10px rgba(0,0,0,0.1);
-        }
+        body::after {
+            content: "✿ ✦ ✿";
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size:
