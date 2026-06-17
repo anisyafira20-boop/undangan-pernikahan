@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Andre & Syafira</title>
     <style>
-        /* Gaya Dasar & Font Klasik */
         body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #dfd7ca; /* Warna kertas krem dasar */
+            background-color: #dfd7ca; /* Warna krem dasar kertas */
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -17,11 +16,11 @@
             align-items: center;
         }
 
-        /* Container Utama */
+        /* CONTAINER UTAMA MEMANJANG */
         .invitation-wrapper {
             max-width: 450px;
             width: 100%;
-            background-color: #dfd7ca; /* Krem tengah */
+            background-color: #dfd7ca;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -29,17 +28,15 @@
             position: relative;
         }
 
-        /* --- 1. HALAMAN PEMBUKA / COVER (Marun Pekat) --- */
+        /* --- 1. HALAMAN PEMBUKA / COVER (MARUN PEKAT) --- */
         .section-cover {
-            background: #420b11 !important; /* Paksa warna Marun Beludru muncul */
-            background-image: url('pembuka.jpg') !important; 
-            background-size: cover;
-            background-position: center;
-            padding: 60px 25px 80px 25px;
+            background-color: #420b11 !important; /* Warna marun beludru dipaksa keluar */
+            padding: 60px 25px 90px 25px;
             color: #ffffff;
             text-align: center;
             border-bottom: 5px solid #d4af37;
             position: relative;
+            box-sizing: border-box;
         }
 
         .main-title {
@@ -110,23 +107,61 @@
             60% { transform: translateY(-4px); }
         }
 
-        /* Ornamen Bunga di Kiri Bawah Cover */
-        .flower-ornament {
+        /* --- ANIMASI KELOPAK BUNGA GUGUR (MURNI CSS TANPA GAMBAR) --- */
+        .flower-drop {
             position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 150px;
-            height: 150px;
-            background-image: url('pembuka.jpg'); /* Ngambil bagian bunga dari file gambar */
-            background-size: cover;
-            background-position: bottom left;
-            z-index: 10;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #ffffff 0%, #f1e7d8 100%);
+            border: 1px solid #d4af37;
+            border-radius: 15px 0 15px 0; /* Membentuk kelopak bunga daun asli */
+            box-shadow: inset 0 0 4px rgba(212,175,55,0.4), 0 2px 5px rgba(0,0,0,0.1);
+            animation: fall 8s infinite linear;
             pointer-events: none;
+            z-index: 5;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-20px) rotate(0deg); left: calc(5% + 90% * var(--x)); opacity: 0; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.9; }
+            100% { transform: translateY(650px) rotate(360deg); left: calc(5% + 90% * var(--x) + 30px); opacity: 0; }
         }
 
-        /* --- 2. HALAMAN ISI (Bagian Tengah Krem) --- */
+        /* --- ORNAMEN BUNGA BESAR DI KIRI BAWAH COVER --- */
+        .static-flower-group {
+            position: absolute;
+            left: 10px;
+            bottom: 15px;
+            z-index: 10;
+            pointer-events: none;
+            display: flex;
+            align-items: flex-end;
+        }
+        .big-petal {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5ebd8 100%);
+            border: 1.5px solid #d4af37;
+            border-radius: 40px 0 40px 0;
+            transform: rotate(-15deg);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .small-petal {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5ebd8 100%);
+            border: 1.5px solid #d4af37;
+            border-radius: 30px 0 30px 0;
+            transform: rotate(35deg);
+            margin-left: -15px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        /* --- 2. HALAMAN ISI (BAGIAN TENGAH KREM) --- */
         .section-content {
-            padding: 80px 25px 40px 25px;
+            padding: 60px 25px 40px 25px;
             text-align: center;
             color: #26070a;
             background-color: #dfd7ca !important;
@@ -177,6 +212,11 @@
     <div class="invitation-wrapper">
         
         <div class="section-cover">
+            <div class="flower-drop" style="--x:0.1; animation-delay: 0s;"></div>
+            <div class="flower-drop" style="--x:0.35; animation-delay: 2.5s;"></div>
+            <div class="flower-drop" style="--x:0.6; animation-delay: 4.5s;"></div>
+            <div class="flower-drop" style="--x:0.85; animation-delay: 1.5s;"></div>
+
             <div class="main-title">Undangan Pernikahan</div>
             
             <div class="cover-names">
@@ -192,7 +232,11 @@
             </div>
 
             <div class="scroll-hint">▼ Scroll ke bawah</div>
-            <div class="flower-ornament"></div>
+
+            <div class="static-flower-group">
+                <div class="big-petal"></div>
+                <div class="small-petal"></div>
+            </div>
         </div>
 
         <div class="section-content">
