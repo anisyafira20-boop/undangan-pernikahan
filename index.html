@@ -60,17 +60,19 @@
             position: relative;
         }
 
-        /* Ornamen GIF Bunga China / Estetik di Atas & Bawah */
-        .gif-ornament {
-            width: 120px;
-            height: auto;
-            margin: 0 auto 15px auto;
-            display: block;
-            filter: drop-shadow(0px 0px 5px rgba(212,175,55,0.5));
+        /* Ornamen Mahkota Bunga Emas Mewah (Aman & Anti-Eror) */
+        .flower-crest {
+            font-size: 45px;
+            color: #d4af37;
+            margin: 0 auto 10px auto;
+            text-shadow: 0 0 12px rgba(212,175,55,0.8);
+            display: inline-block;
+            animation: pulse 3s infinite ease-in-out;
         }
-        .gif-bottom {
-            margin: 20px auto 0 auto;
-            transform: rotate(180deg);
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 20px rgba(212,175,55,1); }
+            100% { transform: scale(1); opacity: 0.9; }
         }
 
         .tanggal-atas {
@@ -99,7 +101,7 @@
             color: #f5eae4;
         }
 
-        /* Nama Pengantin - Dibikin Lebih Tegas & Berkilau */
+        /* Nama Pengantin */
         .nama-pria, .nama-wanita {
             font-size: 24px;
             font-weight: bold;
@@ -134,7 +136,7 @@
             color: #f5eae4;
         }
 
-        /* Kotak Nama Tamu Putih Mewah dengan Bingkai Ganda Emas */
+        /* Kotak Nama Tamu Putih Mewah */
         .box-tamu {
             background: #ffffff;
             border: 4px double #d4af37;
@@ -145,102 +147,3 @@
             color: #000000;
             box-shadow: 0px 5px 15px rgba(0,0,0,0.5), inset 0 0 10px rgba(0,0,0,0.1);
         }
-        .yth-tamu {
-            font-size: 12px;
-            color: #444444;
-            margin: 0 0 8px 0;
-            font-family: 'Arial', sans-serif;
-            letter-spacing: 1px;
-        }
-        #namaTamu {
-            font-size: 24px;
-            font-weight: bold;
-            color: #b81414; /* Nama tamu berwarna merah maroon tegas */
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
-        }
-
-        /* Grid Waktu & Lokasi Elegan */
-        .grid-detail {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 25px 0;
-            border-top: 1px solid rgba(212, 175, 55, 0.4);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 20px 0;
-            font-size: 13px;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        .grid-item h4 {
-            margin: 0 0 5px 0;
-            color: #d4af37;
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
-        .grid-item p {
-            margin: 0;
-            line-height: 1.5;
-        }
-        .lokasi-full {
-            grid-column: span 2;
-            margin-top: 5px;
-        }
-        .lokasi-full p strong {
-            color: #ffffff;
-            font-size: 15px;
-        }
-
-        .penutup {
-            font-size: 12.5px;
-            line-height: 1.6;
-            color: #dfc5af;
-            margin-top: 25px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="leaf" style="--x:0.1; animation-delay: 0s;"></div>
-    <div class="leaf" style="--x:0.3; animation-delay: 2s; background: #9e1b1b;"></div>
-    <div class="leaf" style="--x:0.5; animation-delay: 4s;"></div>
-    <div class="leaf" style="--x:0.7; animation-delay: 1s; background: #9e1b1b;"></div>
-    <div class="leaf" style="--x:0.9; animation-delay: 5s;"></div>
-
-    <div class="card-border">
-        <div class="card-content">
-            
-            <img class="gif-ornament" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTNwcmM0bW9peG96b3M0bXN6cmNjdnd0Y3R6YW9pZnd0Z3Z0NW9pbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LSp66G7biYjVAnuXp2/giphy.gif" alt="Bunga China">
-
-            <div class="tanggal-atas">26 JUNI 2026</div>
-
-            <div class="ayat">
-                Matius 19:6: "Demikianlah mereka bukan lagi dua melainkan satu. Karena itu, apa yang dipersatukan Allah tidak boleh diceraikan manusia".
-            </div>
-
-            <div class="pengantar">
-                Dalam kasih dan anugerah Tuhan Yesus Kristus, kami mengundang Bapak/Ibu/Saudara untuk menghadiri Ibadah Pemberkatan Nikah kami:
-            </div>
-
-            <div class="nama-pria">Andre Bagus Putra Aditya, S.Kom.</div>
-            <div class="nama-china">Liem Shi Wang 林是王</div>
-            <div class="orang-tua">Putra kedua dari Bapak Liem Bing Djiang & Ibu Ong Moy Liang</div>
-
-            <div class="simbol-dan">&</div>
-
-            <div class="nama-wanita">Anisa Syafira Salsabila, S.H.</div>
-            <div class="orang-tua">Putri Keempat dari Bapak Mahatma Rahendra & Ibu Indah Puspita Ratih</div>
-
-            <div class="info-acara">Yang akan dilaksanakan pada:</div>
-
-            <div class="box-tamu">
-                <p class="yth-tamu">Kepada YTH Bapak/Ibu/Saudara/i</p>
-                <h2 id="namaTamu">NAMA TAMU</h2>
-            </div>
-
-            <div class="grid-detail">
-                <div class="grid-item">
-                    <h4>JUM'AT</h4>
-                    <p>26 Juni
